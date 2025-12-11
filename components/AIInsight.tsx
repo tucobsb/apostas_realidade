@@ -23,7 +23,7 @@ export const AIInsight: React.FC<AIInsightProps> = ({ market }) => {
   }, [market.id]);
 
   return (
-    <div className="bg-gradient-to-br from-indigo-900/30 to-futuro-card border border-indigo-500/20 rounded-2xl p-6 relative overflow-hidden shadow-lg">
+    <div className="bg-gradient-to-br from-indigo-900/30 to-futuro-card border border-indigo-500/20 rounded-2xl p-6 relative overflow-hidden shadow-lg min-h-[200px]">
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="flex items-center justify-between mb-5 relative z-10">
@@ -31,7 +31,7 @@ export const AIInsight: React.FC<AIInsightProps> = ({ market }) => {
           <div className="bg-indigo-500/20 p-1.5 rounded-lg">
              <Cpu className="w-5 h-5 text-indigo-400" />
           </div>
-          <h3 className="text-lg font-bold text-white">Análise IA Gemini</h3>
+          <h3 className="text-lg font-bold text-futuro-text">Análise IA Gemini</h3>
         </div>
         {!analysis && !loading && (
           <button 
@@ -45,9 +45,25 @@ export const AIInsight: React.FC<AIInsightProps> = ({ market }) => {
       </div>
 
       {loading && (
-        <div className="flex flex-col items-center justify-center py-8 space-y-4 animate-pulse">
-           <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-           <p className="text-sm font-medium text-indigo-300">Processando dados de mercado...</p>
+        <div className="space-y-4 animate-pulse relative z-10">
+           <div className="flex items-center gap-3 mb-2">
+              <div className="w-2 h-2 rounded-full bg-indigo-500/40"></div>
+              <div className="h-4 bg-indigo-500/10 rounded w-3/4"></div>
+           </div>
+           <div className="space-y-2 pl-5">
+              <div className="h-3 bg-futuro-surface rounded w-full"></div>
+              <div className="h-3 bg-futuro-surface rounded w-5/6"></div>
+              <div className="h-3 bg-futuro-surface rounded w-4/6"></div>
+           </div>
+           
+           <div className="flex items-center gap-3 mt-4 mb-2">
+              <div className="w-2 h-2 rounded-full bg-indigo-500/40"></div>
+              <div className="h-4 bg-indigo-500/10 rounded w-1/2"></div>
+           </div>
+           <div className="space-y-2 pl-5">
+              <div className="h-3 bg-futuro-surface rounded w-full"></div>
+              <div className="h-3 bg-futuro-surface rounded w-11/12"></div>
+           </div>
         </div>
       )}
 
@@ -63,7 +79,7 @@ export const AIInsight: React.FC<AIInsightProps> = ({ market }) => {
              </p>
              <button 
                onClick={handleAnalyze}
-               className="text-xs text-futuro-muted hover:text-white flex items-center gap-1.5 transition-colors"
+               className="text-xs text-futuro-muted hover:text-futuro-text flex items-center gap-1.5 transition-colors"
              >
                <RefreshCcw className="w-3 h-3" /> Regenerar
              </button>

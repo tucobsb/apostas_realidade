@@ -12,7 +12,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     return (
       <div className="bg-futuro-card border border-futuro-border p-3 rounded-lg shadow-2xl text-xs">
         <p className="text-futuro-muted mb-1">{new Date(label).toLocaleDateString('pt-BR')} {new Date(label).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
-        <p className="text-white font-bold text-sm">
+        <p className="text-futuro-text font-bold text-sm">
           {`Probabilidade: ${(payload[0].value * 100).toFixed(0)}%`}
         </p>
       </div>

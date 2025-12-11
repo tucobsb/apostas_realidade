@@ -31,10 +31,32 @@ export interface Position {
   side: 'SIM' | 'NÃO';
   quantity: number;
   avgPrice: number;
+  currentPrice: number; // Added for portfolio calculation
+  pnl: number;         // Added for portfolio calculation
 }
 
 export interface User {
+  id: string;        // Added for auth
+  name: string;      // Added for auth
+  email: string;     // Added for auth
+  avatarUrl?: string; // Added for auth
   balance: number;
   portfolioValue: number;
   positions: Position[];
+}
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  source: string;
+  timeAgo: string;
+  sentiment: 'Positivo' | 'Negativo' | 'Neutro';
+  relatedMarketId?: string;
+}
+
+export interface LeaderboardEntry {
+  rank: number;
+  username: string;
+  profit: number;
+  roi: number;
 }
